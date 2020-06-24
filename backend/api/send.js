@@ -1,4 +1,11 @@
-export default (req, res) => {
+const cors = require("micro-cors")();
+
+export default cors((req, res) => {
+  if (req.method === "OPTIONS") {
+    res.status(204).end();
+    return;
+  }
+
   if (req.method !== "POST") {
     res.status(405).json({ error: "Only the POST method is allowed" });
     return;
@@ -27,17 +34,15 @@ export default (req, res) => {
   }
 
   if (failed.length > 0) {
-    res
-      .status(500)
-      .json({
-        error: "Failed to send emails to some addresses",
-        emails: failed
-      });
+    res.status(500).json({
+      error: "Failed to send emails to some addresses",
+      emails: failed
+    });
 
-    return
+    return;
   }
 
   res.end();
-};
+});
 
 const emailPattern = /.+\@.+\..+/;
