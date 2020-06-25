@@ -37,12 +37,12 @@ These screenshots are only to illustrate what the interface should look like, no
 
 ### Selecting files
 
-![](images/screenshot-1.png)
+<img src="images/screenshot-1.png" width="424">
 
 ### Success message
 
-![](images/screenshot-2.png)
+<img src="images/screenshot-2.png" width="376">
 
 ### Error message
 
-![](images/screenshot-3.png)
+<img src="images/screenshot-3.png" width="485">
