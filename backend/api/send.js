@@ -28,7 +28,7 @@ export default cors((req, res) => {
       return;
     }
 
-    if (Math.random() > 0.9) {
+    if (Math.random() > 0.95) {
       failed.push(address);
     }
   }

@@ -6,19 +6,20 @@
   </head>
   <body>
     <h1>Toggl Hire Homework API</h1>
-    <p>This very simple API can be used as the backend for your homework assignment. The only purpose of the API is to accept a list of email addresses and send some emails to those addresses. Sending can fail sometimes, if the email address is invalid or cannot receive any emails.</p>
-    <p>Note that the API doesn't actually send any emails, or store the submitted data anywhere.</p>
+    <p>This very simple API can be used as the backend for your homework assignment. The only purpose of the API is to accept a list of email addresses and send some emails to those addresses.</p>
+    <p>Sending can fail sometimes, if the email address is invalid or cannot receive any emails. Note that the API doesn't actually send any emails, instead there is a simulated 5% chance for each email address to fail.</p>
     <p>There is no authentication or rate limiting to keep it simple.</p>
 
     <h2>Endpoints</h2>
 
     <h3><code>POST /api/send</code></h3>
 
-    <p>The endpoint accepts a JSON object with a single property, <code>emails</code>. The property is a simple array containing email addresses. If everything goes well, an empty response with code 200 is returned. If there is an error, an error response code is returned and the response contains a JSON object containing the <code>error</code> attribute.<code>failed</code> property that contains a list of email addresses that could not receive emails.</p>
+    <p>The endpoint accepts a JSON object with a single property, <code>emails</code>. The property is a simple array containing email addresses. If everything goes well, an empty response with code 200 is returned. If there is an error, an error response code is returned and the response contains a JSON object containing the <code>error</code> attribute. <code>failed</code> property that contains a list of email addresses that could not receive emails.</p>
 
-    <h4>Request</h4>
+    <h4>Successful response</h4>
 
     <pre><code>POST /api/send HTTP/1.1
+Content-Type: application/json
 
 {
     "emails": [
@@ -26,18 +27,48 @@
         "bbb@bbb.com"
     ]
 }</code></pre>
-    
-    <h4>Response</h4>
 
     <pre><code>HTTP/1.1 200 OK</code></pre>
 
+    <h4>Error when sending an email to some addresses</h4>
+
+    <pre><code>POST /api/send HTTP/1.1
+Content-Type: application/json
+
+{
+    "emails": [
+        "aaa@aaa.com",
+        "bbb@bbb.com"
+    ]
+}</code></pre>
+
     <pre><code>HTTP/1.1 500 Internal Server Error
+Content-Type: application/json
 
 {
     "emails": [
         "aaa@aaa.com"
     ],
     "error": "Failed to send emails to some addresses"
+}</code></pre>
+
+    <h4>Error when one of the addresses is not valid</h4>
+
+    <pre><code>POST /api/send HTTP/1.1
+Content-Type: application/json
+
+{
+    "emails": [
+        "not-an-email"
+    ]
+}</code></pre>
+
+    <pre><code>HTTP/1.1 422 Unprocessable Entity
+Content-Type: application/json
+
+{
+    "email": "not-an-email",
+    "error": "Invalid email"
 }</code></pre>
 
   </body>
