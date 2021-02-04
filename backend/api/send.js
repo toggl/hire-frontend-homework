@@ -6,6 +6,11 @@ export default cors((req, res) => {
     return;
   }
 
+  if (Math.random() > 0.95) {
+    res.status(500).json({ error: "server_error" });
+    return;
+  }
+
   if (req.method !== "POST") {
     res.status(405).json({ error: "invalid_http_method" });
     return;
