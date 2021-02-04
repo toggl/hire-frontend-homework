@@ -6,15 +6,16 @@
   </head>
   <body>
     <h1>Toggl Hire Homework API</h1>
-    <p>This very simple API can be used as the backend for your homework assignment. The only purpose of the API is to accept a list of email addresses and send some emails to those addresses.</p>
+    <p>This very simple API must be used as the backend for your homework assignment. The only purpose of the API is to accept a list of email addresses and send some emails to those addresses.</p>
     <p>Sending can fail sometimes, if the email address is invalid or cannot receive any emails. Note that the API doesn't actually send any emails, instead there is a simulated 5% chance for each email address to fail.</p>
-    <p>There is no authentication or rate limiting to keep it simple.</p>
+    <p>There is no authentication or rate limiting to keep it simple. However, the API will fail with a server error sometimes.</p>
+    <p>You can inspect the implementation <a href="https://github.com/togglhire/frontend-homework/blob/master/backend/api/send.js">on GitHub</a>.</p>
 
     <h2>Endpoints</h2>
 
     <h3><code>POST /api/send</code></h3>
 
-    <p>The endpoint accepts a JSON object with a single property, <code>emails</code>. The property is a simple array containing email addresses. If everything goes well, an empty response with code 200 is returned. If there is an error, an error response code is returned and the response contains a JSON object containing the <code>error</code> attribute. <code>failed</code> property that contains a list of email addresses that could not receive emails.</p>
+    <p>The endpoint accepts a JSON object with a single property, <code>emails</code>. The property is a simple array containing email addresses. If everything goes well, an empty response with code 200 is returned. If there is an error, an error response code is returned and the response contains a JSON object containing the <code>error</code> attribute with the error code. The <code>emails</code> property contains a list of email addresses that were invalid or could not receive emails.</p>
 
     <h4>Successful response</h4>
 
@@ -49,7 +50,7 @@ Content-Type: application/json
     "emails": [
         "aaa@aaa.com"
     ],
-    "error": "Failed to send emails to some addresses"
+    "error": "send_failure"
 }</code></pre>
 
     <h4>Error when one of the addresses is not valid</h4>
@@ -67,8 +68,10 @@ Content-Type: application/json
 Content-Type: application/json
 
 {
-    "email": "not-an-email",
-    "error": "Invalid email"
+    "emails": [
+        "not-an-email"
+    ],
+    "error": "invalid_email_address"
 }</code></pre>
 
   </body>
