@@ -28,17 +28,27 @@ export default cors(async (req, res) => {
     return;
   }
 
+  const invalid = [];
   const failed = [];
 
   for (const address of req.body.emails) {
     if (typeof address !== "string" || !emailPattern.test(address)) {
-      res.status(422).json({ error: "invalid_email_address", email: address });
-      return;
+      invalid.push(address);
+      continue;
     }
 
     if (Math.random() > 0.95) {
       failed.push(address);
     }
+  }
+
+  if (invalid.length > 0) {
+    res.status(422).json({
+      error: "invalid_email_address",
+      emails: invalid
+    });
+
+    return;
   }
 
   if (failed.length > 0) {
