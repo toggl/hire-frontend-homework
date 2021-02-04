@@ -1,6 +1,9 @@
 const cors = require("micro-cors")();
+const sleep = require("then-sleep");
 
-export default cors((req, res) => {
+export default cors(async (req, res) => {
+  await sleep(300 + Math.random() * 200);
+
   if (req.method === "OPTIONS") {
     res.status(204).end();
     return;
