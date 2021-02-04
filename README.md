@@ -2,15 +2,15 @@
 
 The goal of this assignment is to see how familiar you are with JavaScript, React and web technologies. We tried to pick a task that is similar to what you would do at Toggl Hire, while keeping it minimal so you can finish it in a short time.
 
-We have a simple service used for sending emails to many candidates at once. The service has a single API endpoint, which accepts a list of email addresses. The API is hosted on https://frontend-homework.togglhire.vercel.app/, where you can also find the documentation. The implementation is also in the `backend` folder if you want to see the details, but you are not expected to do any changes here.
+We have a simple service used for sending emails to many candidates at once. The service has a single API endpoint, which accepts a list of email addresses. The API is hosted on https://toggl-hire-frontend-homework.vercel.app/, where you can also find the documentation. The implementation is also in the `backend` folder if you want to see the details, but you are not expected to do any changes here.
 
 Your task is to implement a simple React application that will let the user select text files containing email addresses, read the files and send the email addresses to the API. The files have one email address per line. You can find some files for testing in the `data` directory.
 
-Try to have as few dependencies for your application as possible, ideally use only React. You don't need to worry about support for older browsers for this assignment, but it should work in all major modern browsers (Chrome, Firefox, Edge, Safari).
+Try to have as few dependencies for your application as possible, ideally use only React. You don't need to worry about support for older browsers for this assignment, but it should work in all major modern browsers (Chrome, Firefox, Edge, Safari). The code should be formatted with [Prettier](https://prettier.io).
 
 There is a basic app created with Create React App in the `frontend` folder. Feel free to use it, or swap it for your favourite project setup.
 
-Fork this repository on GitHub, commit your solution to your repository and send us a link to it. If you prefer having the repository private, please add `miscer` and `eruanntion` as collaborators, so we can review it.
+Fork this repository on GitHub, commit your solution to your repository and send us a link to it. If you prefer having the repository private, please add [miscer](https://github.com/miscer) as collaborators, so we can review it.
 
 ## Basic requirements
 
