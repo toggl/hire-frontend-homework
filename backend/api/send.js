@@ -7,7 +7,7 @@ export default cors((req, res) => {
   }
 
   if (req.method !== "POST") {
-    res.status(405).json({ error: "Only the POST method is allowed" });
+    res.status(405).json({ error: "invalid_http_method" });
     return;
   }
 
@@ -16,7 +16,7 @@ export default cors((req, res) => {
     req.body.emails == null ||
     !Array.isArray(req.body.emails)
   ) {
-    res.status(422).json({ error: "Invalid request body" });
+    res.status(422).json({ error: "invalid_request_body" });
     return;
   }
 
@@ -24,7 +24,7 @@ export default cors((req, res) => {
 
   for (const address of req.body.emails) {
     if (typeof address !== "string" || !emailPattern.test(address)) {
-      res.status(422).json({ error: "Invalid email", email: address });
+      res.status(422).json({ error: "invalid_email_address", email: address });
       return;
     }
 
@@ -35,7 +35,7 @@ export default cors((req, res) => {
 
   if (failed.length > 0) {
     res.status(500).json({
-      error: "Failed to send emails to some addresses",
+      error: "send_failure",
       emails: failed
     });
 
