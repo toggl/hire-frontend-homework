@@ -10,7 +10,7 @@ Try to have as few dependencies for your application as possible, ideally use on
 
 There is a basic app created with Create React App in the `frontend` folder. Feel free to use it, or swap it for your favourite project setup.
 
-Fork this repository on GitHub, commit your solution to your repository and send us a link to it. If you prefer having the repository private, please add [miscer](https://github.com/miscer) as a collaborator, so we can review it.
+Create a new repository on GitHub. You can [use this one as a template](https://github.com/togglhire/frontend-homework/generate). Commit your solution to your repository and send us a link to it. If you prefer having the repository private, please add [miscer](https://github.com/miscer) as a collaborator, so we can review it.
 
 ## Basic requirements
 
