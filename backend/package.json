@@ -1,7 +1,6 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "private": true,
   "dependencies": {
@@ -9,5 +8,8 @@
     "@fastify/static": "^6.4.0",
     "fastify": "^4.2.0",
     "then-sleep": "^1.0.1"
+  },
+  "scripts": {
+    "start": "node api.js"
   }
 }
