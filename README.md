@@ -2,7 +2,7 @@
 
 The goal of this assignment is to see how familiar you are with JavaScript, React and web technologies. We tried to pick a task that is similar to what you would do at Toggl Hire, while keeping it minimal so you can finish it in a short time.
 
-We have a simple service used for sending emails to many candidates at once. The service has a single API endpoint, which accepts a list of email addresses. The API is hosted on https://toggl-hire-frontend-homework.vercel.app/, where you can also find the documentation. The implementation is also in the `backend` folder if you want to see the details, but you are not expected to do any changes here.
+We have a simple service used for sending emails to many candidates at once. The service has a single API endpoint, which accepts a list of email addresses. The API is hosted on https://toggl-hire-frontend-homework.onrender.com, where you can also find the documentation. The implementation is also in the `backend` folder if you want to see the details, but you are not expected to do any changes here.
 
 Your task is to implement a simple React application that will let the user select text files containing email addresses, read the files and send the email addresses to the API. The files have one email address per line. You can find some files for testing in the `data` directory.
 
@@ -10,7 +10,7 @@ Try to have as few dependencies for your application as possible, ideally use on
 
 There is a basic app created with Create React App in the `frontend` folder. Feel free to use it, or swap it for your favourite project setup.
 
-Create a new repository on GitHub. You can [use this one as a template](https://github.com/togglhire/frontend-homework/generate). Commit your solution to your repository and send us a link to it. If you prefer having the repository private, please add [miscer](https://github.com/miscer) as a collaborator, so we can review it.
+Create a new repository on GitHub. You can [use this one as a template](https://github.com/togglhire/frontend-homework/generate). Commit your solution to your repository and send us a link to it. If you prefer having the repository private, please add one of our team members as a collaborator, so we can review it.
 
 ## Basic requirements
 
